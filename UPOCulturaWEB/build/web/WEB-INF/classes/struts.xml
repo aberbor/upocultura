@@ -27,8 +27,10 @@
             <result name="success">/index.jsp</result>
         </action>
 
-        <action name="principal" class="controlador.PrincipalAction">
-            <result>/principal.jsp</result>
+        <action name="principal" class="controlador.PrincipalAction">           //DEPENDE DE LO QUE DEVUELVE EL ACTION, VA A UN SITIO
+            <result name="asistente">/principal_Asistente.jsp</result>
+            <result name="colaborador">/principal_Colaborador.jsp</result>
+            <result name="organizador">/principal_Organizador.jsp</result>
         </action>
         
         <action name="crearEventoForm">
@@ -38,6 +40,16 @@
         <action name="crearEvento" class="controlador.CrearEventoAction">
             <result name="success" type="redirectAction">principal</result>
             <result name="input">/crearEvento.jsp</result>
+        </action>
+        
+        <action name="editarEvento" class="controlador.EditarEventoAction">
+            <result name="success">/editarEvento.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="eliminarEvento" class="controlador.EliminarEventoAction">
+            <result name="success">/principal_Organizador.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
     </package>
 </struts>

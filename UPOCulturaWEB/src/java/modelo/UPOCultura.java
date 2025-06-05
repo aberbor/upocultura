@@ -16,6 +16,11 @@ import org.hibernate.Transaction;
  */
 public class UPOCultura {
 
+    public UPOCultura() {
+    }
+    
+    
+
     // Metodo para guardar un nuevo usuario
     public boolean guardarUsuario(Usuario u) {
         Session s = null;
@@ -88,6 +93,10 @@ public class UPOCultura {
         List<Organizador> lista = query.list();
         s.close();
         return lista.isEmpty() ? null : lista.get(0);
+    }
+    
+    public void eliminarEvento(int selectedEvento) {    //IMPLEMENTAR ELIMINAR, LO QUE ENTRA DEBE SER EL ID
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

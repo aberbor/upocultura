@@ -7,8 +7,10 @@ package controlador;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
+import java.util.Map;
 import modelo.Evento;
 import modelo.UPOCultura;
+import modelo.Usuario;
 
 /**
  *
@@ -18,6 +20,7 @@ public class PrincipalAction extends ActionSupport {
     
     private List<Evento> listaEventos;
     private UPOCultura upoCultura = new UPOCultura();
+    private Map<String, Object> session;
     
     public PrincipalAction() {
     }
@@ -25,7 +28,9 @@ public class PrincipalAction extends ActionSupport {
     public String execute() throws Exception {
         UPOCultura upo = new UPOCultura();
         listaEventos = upoCultura.obtenerTodosEventos();
-        return SUCCESS;
+        Usuario user = (Usuario) session.get("usuario");        //NO SE SI ESTA BIEN LA VERDAD PERO SE PRETENDE PASAR EL TIPO DESDE LA SESSION
+        
+        return user.getTipo();
     }
 
     public List<Evento> getListaEventos() {
